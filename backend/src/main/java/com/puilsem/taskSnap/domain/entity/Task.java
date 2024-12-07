@@ -1,4 +1,4 @@
-package com.puilsem.taskSnap.entities;
+package com.puilsem.taskSnap.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,14 +7,14 @@ import java.time.*;
 import java.util.*;
 
 @Entity
-@Table(name = "task_lists")
+@Table(name = "tasks")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class TaskList {
+public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -27,14 +27,26 @@ public class TaskList {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "due_date")
+    private LocalDateTime dueDate;
+
+    @Column(name = "task_status", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private TaskStatus taskStatus;
+
+    @Column(name = "task_priority", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private TaskPriority taskPriority;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at", nullable = false, updatable = false)
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "taskList", cascade = {CascadeType.REMOVE, CascadeType.PERSIST })
-    private List<Task> tasks;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "task_list_id")
+    private TaskList taskList;
 
     @PrePersist
     public void onCreate(){

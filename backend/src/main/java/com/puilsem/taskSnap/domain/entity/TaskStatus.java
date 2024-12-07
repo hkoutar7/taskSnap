@@ -1,4 +1,5 @@
-package com.puilsem.taskSnap.entities;
+package com.puilsem.taskSnap.domain.entity;
+
 
 public enum TaskStatus {
     OPEN, CLOSED
