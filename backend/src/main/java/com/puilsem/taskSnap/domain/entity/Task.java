@@ -31,11 +31,11 @@ public class Task {
     private LocalDateTime dueDate;
 
     @Column(name = "task_status", nullable = false)
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private TaskStatus taskStatus;
 
     @Column(name = "task_priority", nullable = false)
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private TaskPriority taskPriority;
 
     @Column(name = "created_at", nullable = false, updatable = false)
