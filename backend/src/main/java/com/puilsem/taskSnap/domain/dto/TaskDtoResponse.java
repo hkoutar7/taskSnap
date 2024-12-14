@@ -5,12 +5,12 @@ import com.puilsem.taskSnap.domain.entity.*;
 import java.time.*;
 import java.util.*;
 
-public record TaskDto(
+public record TaskDtoResponse(
         UUID id,
         String title,
         String description,
         LocalDateTime dueDate,
-        TaskStatus taskStatus,
-        TaskPriority taskPriority
+        TaskPriority taskPriority,
+        TaskStatus taskStatus
 ) {
 }
