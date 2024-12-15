@@ -53,12 +53,16 @@ public class TaskListMapperImpl implements TaskListMapper {
         int tasksAll = 0;
         int tasksCompleted = 0;
 
+        if (taskList.getTasks() == null || taskList.getTasks().isEmpty()) {
+            return 0.0;
+        }
+
         for (Task t: taskList.getTasks()){
             if(t.getTaskStatus() == TaskStatus.CLOSED)
                 tasksCompleted++;
             tasksAll++;
         }
-        return tasksAll == 0 ? 0.0 : (double) tasksCompleted / tasksAll;
+        return (double) tasksCompleted / tasksAll;
     }
 
 }

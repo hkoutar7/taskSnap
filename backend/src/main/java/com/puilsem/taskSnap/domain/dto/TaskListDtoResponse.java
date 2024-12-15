@@ -6,8 +6,8 @@ public record TaskListDtoResponse(
         UUID id,
         String title,
         String description,
-        List<TaskDtoResponse> taskDtoResponseList,
-        Integer taskListTotal,
-        Double taskListProgress
+        List<TaskDtoResponse> tasks,
+        Integer tasksTotal,
+        Double tasksProgress
 ) {
 }
