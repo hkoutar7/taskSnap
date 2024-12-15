@@ -1,0 +1,40 @@
+# Exclude IntelliJ IDEA project files
+.idea/
+
+# Exclude all .iml files
+*.iml
+
+# Exclude build directories
+/out/
+build/
+target/
+
+# Exclude Maven and Gradle local configuration
+.mvn/
+.gradle/
+.gradle-cache/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Exclude generated files
+*.class
+*.jar
+*.war
+*.ear
+
+# Exclude environment and configuration files
+.env
+*.config
+
+# Exclude test coverage reports
+/coverage/
+
+# Exclude IDE-specific files (other IDEs)
+.vscode/
